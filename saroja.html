@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SRKR</title>
+</head>
+<body>
+  <h1>DS PROGRAMS</h1>
+
+<h2>PROGRAMS USING SEARCHING<br></h2>
+<h3>Linear Search</h3>
+#include<stdio.h><br>
+int main()<br>
+{<br>
+int i,A[10],N,VAL,POS=-1,found=0;<br>
+printf("\nEnter the Number of Elements in the array : ");<br>
+scanf("%d",&N);<br>
+printf("\nEnter the Elements : ");<br>
+for(i=0;i<N;i++)<br>
+{<br>
+scanf("%d",&A[i]);<br>
+}<br>
+printf("\n Enter the Number that has to be Searched : ");<br>
+scanf("%d",&VAL);<br>
+for(i=0;i<N;i++)<br>
+{<br>
+if(A[i]==VAL)<br>
+{<br>
+found=1;<br>
+POS=i;<br>
+printf("\n %d is found in this array at position = %d ",VAL,i);<br>
+break;<br>
+}<br>
+}<br>
+if(found==0)<br>
+{<br>
+printf("\n %d Not Present in the Array",VAL);<br>
+}<br>
+}<br>
+<br>
+OUTPUT<br><br>
+Enter the Number of Elements in the array: 6<br>
+Enter the Elements: 45<br>
+26<br>
+38<br>
+78<br>
+58<br>
+66<br>
+Enter the Number that has to be Searched: 58<br>
+58 is found in this array at position = 4<br>
+--------------------------------<br>
+
+
+Enter the Number of Elements in the array : 6<br>
+Enter the Elements: 78<br>
+36<br>
+45<br>
+17<br>
+19<br>
+21<br>
+Enter the Number that has to be searched: 99<br>
+99 Not Present in the Array<br>
+--------------------------------<br><br>
+
+
+<h3>Binary Search</h3>
+#include<stdio.h><br>
+int main()<br>
+{<br>
+int A[10],VAL,i,n,POS=-1,beg,end,mid,found=0;<br>
+printf("\nEnter the number of elements in the array : ");<br>
+scanf("%d",&n);<br>
+printf("\nEnter the elements in ascending order: ");<br>
+for(i=0;i<n;i++)<br>
+{<br>
+scanf("%d",&A[i]);<br>
+}<br>
+printf("\nEnter the number that has to be searched : ");<br>
+scanf("%d",&VAL);<br>
+beg=0;<br>
+end=n-1;<br>
+while(beg<=end)<br>
+{<br>
+mid = (beg + end)/2;<br>
+if(A[mid]==VAL)<br>
+{<br>
+printf("%d is present in the array at position = %d",VAL,mid);<br>
+found=1;<br>
+break;<br>
+}<br>
+if(A[mid]>VAL)<br>
+end=mid-1;<br>
+else<br>
+beg=mid+1;<br>
+
+}<br>
+if(beg>end && found==0)<br>
+printf("\n%d Does not exist in the array",VAL);<br>
+
+return 0;<br>
+}<br><br>
+OUTPUT<br><br>
+
+Enter the number of elements in the array: 8 Enter the elements in ascending order: 25<br>
+
+36<br>
+
+44<br>
+
+53<br>
+
+65<br>
+
+73
+<br>
+79<br>
+
+85
+<br>
+Enter the number that has to be searched: 73<br>
+73 is present in the array at position = 5<br>
+--------------------------------<br>
+
+
+Enter the number of elements in the array: 5 <br>
+Enter the elements in ascending order: 25<br>
+
+34
+<br>
+48
+<br>
+55<br>
+
+69<br>
+
+Enter the number that has to be searched: 99<br>
+
+99 Does not exist in the array<br>
+
+--------------------------------<br>
+<br>
+<h3>Interpolation Search</h3>
+#include <stdio.h><br>
+#define MAX 20<br>
+int interpolation_search(int a[], int low, int high, int val);<br>
+int main()<br>
+{<br>
+int arr[MAX],i,n,val,pos;<br>
+printf("\n Enter the number of elements in the array : ");<br>
+scanf("%d", &n);<br>
+printf("\n Enter the elements : ");<br>
+for(i=0;i<n; i++)<br>
+scanf("%d",&arr[i]);<br>
+printf("\nEnter the value to be searched : ");<br>
+scanf("%d",&val);<br>
+pos=interpolation_search(arr,0,n-1,val);<br>
+if(pos==-1)<br>
+printf("\n %d is not found in the array", val);<br>
+else<br>
+printf("\n %d is found at position %d", val, pos);<br>
+return 0;<br>
+}<br>
+int interpolation_search(int a[], int low, int high, int val)<br>
+{<br>
+int mid;<br>
+while(low<=high)<br>
+{<br>
+mid = low + (high - low)*((val - a[low]) / (a[high] - a[low]));<br>
+if(val == a[mid])<br>
+return mid;<br>
+if(val < a[mid])<br>
+high = mid - 1;<br>
+else<br>
+low = mid + 1;<br>
+}<br>
+return -1;<br>
+}<br><br>
+OUTPUT<br><br>
+
+Enter the number of elements in the array: 8<br>
+
+Enter the elements: 25<br>
+
+36<br>
+
+66<br>
+
+75<br>
+
+84<br>
+
+86<br>
+
+99<br>
+
+100
+<br>
+Enter the value to be searched: 84<br>
+
+84 is found at position 4<br>
+-----------------------------
+
+
+ 
+</body>
+</html>
